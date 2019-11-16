@@ -1,9 +1,14 @@
 import React from 'react';
+import StoryCardForGrid from './StoryCardForGrid';
 
-function Stories() {
+function Stories( { stories }) {
     return (
       <div> 
-        <h2>Stories go here</h2>
+        <h2>Refugee Stories</h2>
+        {stories.map( story => (
+          <StoryCardForGrid story={story} />
+        ))
+        }
       </div>
     );
   }
