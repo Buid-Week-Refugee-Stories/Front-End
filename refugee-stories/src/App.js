@@ -31,6 +31,18 @@ function App() {
   console.log(users);
   console.log(stories);
 
+  const addNewStory = story => {
+    const newStory = {
+      id: Date.now(),
+      author: story.author,
+      location: story.location,
+      date: Date.now(),
+      story_title: story.story_title,
+      story_text: story.story_text
+    }
+    setStories([...stories, newStory]);
+  }
+
   return (
     <div>
       <Nav />
@@ -38,7 +50,7 @@ function App() {
       <Route path='/about' component={About} />
       <Route path='/login' component={LoginForm} />
       <Route exact path='/stories' render={({props}) => <Stories {...props} stories={stories}/>} />
-      <Route path='/submission' component={SubmissionForm} />
+      <Route path='/submission' render={({props}) => <SubmissionForm {...props} addNewStory={addNewStory}/>} />
       <Route exact path='/stories/:storyID' render={ props => <StoryCard {...props} stories={stories}/>} />
     </div>
   );

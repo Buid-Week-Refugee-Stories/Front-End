@@ -6,7 +6,7 @@ function Stories( { stories }) {
       <div> 
         <h2>Refugee Stories</h2>
         {stories.map( story => (
-          <StoryCardForGrid story={story} />
+          <StoryCardForGrid story={story} key={story.id} />
         ))
         }
       </div>
