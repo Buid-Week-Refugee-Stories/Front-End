@@ -12,11 +12,11 @@ const Nav = () => {
                 <img src={RefugeeStoriesLogo} className='logo' alt='home' />
             </div>
         </NavLink>
-        <NavLink to='/about'>About Us</NavLink>
-        <NavLink to='/login'>Login</NavLink>
-        <NavLink to='/stories'>Stories</NavLink>
-        <NavLink to='/submission'>Submit a Story</NavLink>
-        <NavLink to='/pending'>Pending Stories</NavLink>
+        <NavLink to='/about' activeClassName="selected">About Us</NavLink>
+        <NavLink to='/login' activeClassName="selected">Login</NavLink>
+        <NavLink to='/stories' activeClassName="selected">Stories</NavLink>
+        <NavLink to='/submission' activeClassName="selected">Submit a Story</NavLink>
+        <NavLink to='/pending' activeClassName="selected">Pending Stories</NavLink>
     </nav>
     )
 }
