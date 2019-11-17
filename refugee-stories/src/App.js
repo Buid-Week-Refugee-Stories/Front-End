@@ -11,6 +11,7 @@ import SubmissionForm from './components/SubmissionForm';
 import Nav from './components/Nav';
 import StoryCard from './components/StoryCard';
 import PendingStories from './components/PendingStories';
+import Footer from './components/Footer';
 
 //import data from './data';
 
@@ -97,6 +98,7 @@ function App() {
   return (
     <div>
       <Nav />
+
       <Route exact path='/' component={Home} />
       <Route path='/about' component={About} />
       <Route path='/login' render={({props}) => <LoginForm {...props} findUser={findUser} loggedIn={loggedIn}/>} />
@@ -104,6 +106,8 @@ function App() {
       <Route path='/submission' render={({props}) => <SubmissionForm {...props} addNewStory={addNewStory}/>} />
       <Route exact path='/stories/:storyID' render={ props => <StoryCard {...props} stories={stories}/>} />
       <Route path='/pending' render={({props}) => <PendingStories {...props} stories={stories} modifyStory={modifyStory} deleteStory={deleteStory}/>} />
+      
+      <Footer />
     </div>
   );
 }

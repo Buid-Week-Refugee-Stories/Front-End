@@ -139,3 +139,24 @@ button:hover {
 .logo {
   width: 4rem;
 }
+
+footer {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 4rem;
+  background: #FFEEEE;
+  padding: 2rem;
+}
+nav.footerNav {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: none;
+}
+
+footer img {
+  max-width: 10rem;
+}
