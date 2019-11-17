@@ -22,7 +22,6 @@ function AdminForm( props ) {
 
   return (
     <div>
-        <hr />
         <form>
             <label htmlFor='approved_story'><span role='img' aria-label='check'>✅</span> Approve? </label>
             <input type='checkbox'
@@ -30,7 +29,7 @@ function AdminForm( props ) {
             id='approved_story'
             onChange={handleChange}
             checked={adminInput.approved_story}
-            /><br />
+            />
 
             <label htmlFor='delete_story'><span role='img' aria-label='cross'>❎</span> Delete? </label>
             <input type='checkbox'

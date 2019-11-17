@@ -5,7 +5,7 @@ function StoryCard( props ) {
     
     const story = props.stories.find( story => story.id === Number(props.match.params.storyID));
     return (
-      <div> 
+      <div className='storyContainer'> 
         <StoryBox story={story} />
       </div>
     );

@@ -1,13 +1,135 @@
-body {
+@import url('https://fonts.googleapis.com/css?family=Alata|Bebas+Neue&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  max-width: 100%;
+  font-size: 62.5%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  color: #252A33;
+  
+  font-family: 'Alata', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: url('/images/refugeesMosaic.jpg');
+  background-size: contain;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 8rem;
+  letter-spacing: 1.2rem;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 2.5rem;
+}
+
+p {
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  font-size: 2rem;
+  color: #252A33; 
+}
+
+nav a {
+  color: #8CA744;
+}
+
+nav a:hover {
+  font-style: italic;
+  transform: scale(1.2);
+  transition: all .2s ease-in-out;
+}
+
+.inlineLink {
+  font-size: 4rem;
+  color: #8CA744;
+}
+
+.imgContainer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+}
+
+img {
+  max-width: 100%;
+}
+
+nav {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+  border-bottom: 1px solid#D7DDE1;
+}
+
+label {
+  font-size: 1.5rem;
+  color: #C12E29;
+}
+
+input, textarea {
+  font-size: 2rem;
+  margin: 2rem;
+}
+
+[placeholder] {
+  padding-left: 1rem;
+}
+button {
+  font-size: 3rem;
+  padding: 1rem;
+  background: #E0BE12;
+  border: none;
+  border-radius: 3px;
+}
+
+button:hover {
+  transform: scale(1.2);
+  transition: all .2s ease-in-out;
+}
+
+.storyContainer {
+  width: 48%;
+  margin: 1rem auto;
+  padding: 2rem;
+  border: 2px solid #C3BEB2;
+  border-radius: 2px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  color: #3D5B91;
+}
+
+.cardContainer {
+  width: 90%;
+  margin: 2rem auto;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.logo {
+  width: 4rem;
 }

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import refugees from '../images/refugees.jpg';
 
 
 function SubmissionForm( props ) {
@@ -54,7 +55,7 @@ function SubmissionForm( props ) {
           value={story.story_title}/><br />
 
         <label htmlFor='story_description'>Story: </label>
-        <input type='textarea'
+        <textarea
           name='story_description'
           id='story_description'
           placeholder='your story here'
@@ -64,6 +65,10 @@ function SubmissionForm( props ) {
         <button type='submit'>Submit Story</button>
 
       </form>
+
+      <div className="imgContainer">
+        <img src={refugees} alt='refugees standing at a seashore' />
+      </div>
     </div>
   );
 }
