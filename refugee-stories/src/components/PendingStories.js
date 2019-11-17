@@ -2,14 +2,14 @@ import React from 'react';
 import StoryCardForGrid from './StoryCardForGrid';
 import AdminForm from './AdminForm';
 
-function PendingStories( {stories, modifyStory}) {
+function PendingStories( {stories, modifyStory, deleteStory}) {
     const unapproved = stories.filter(story => !story.approved_story);
     return (
       <div> 
         <h2>Pending Stories</h2>
         {unapproved.map( story => (
           <div key={story.id}>
-            <AdminForm story={story} modifyStory={modifyStory}/>
+            <AdminForm story={story} modifyStory={modifyStory} deleteStory={deleteStory}/>
             <StoryCardForGrid story={story} />
           </div>
         ))

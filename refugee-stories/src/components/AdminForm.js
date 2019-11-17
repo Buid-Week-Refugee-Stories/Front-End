@@ -12,13 +12,11 @@ function AdminForm( props ) {
     const value = target.type === 'checkbox'? target.checked: target.value;
     const name = target.name;
     setAdminInput({...adminInput, [name]: value});
-    console.log(name + ' is ' + value);
     if (name === 'approved_story' && value === true) {
-        console.log( props.story.story_title + ' is approved.');
         props.modifyStory(props.story);
     }
     if (name === 'delete_story' && value === true) {
-        console.log('Time to delete' + props.story.story_title);
+        props.deleteStory(props.story);
     }
   }
 
