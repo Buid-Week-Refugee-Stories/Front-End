@@ -7,7 +7,7 @@ function StoryBox( { story }) {
         <h3>By {story.author}</h3>
         <h3>Located in {story.location}</h3>
         <h3>Written on {story.date}</h3>
-        <p>{story.story_text}</p>
+        <p>{story.story_description}</p>
       </div>
     );
   }
