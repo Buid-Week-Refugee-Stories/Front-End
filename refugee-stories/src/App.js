@@ -10,12 +10,12 @@ import About from './components/About';
 import SubmissionForm from './components/SubmissionForm';
 import Nav from './components/Nav';
 import StoryCard from './components/StoryCard';
+import PendingStories from './components/PendingStories';
 
-import data from './data';
+//import data from './data';
 
 function App() {
   const [stories, setStories] = useState([]); //useState(data[1].stories) for my mock data
-  const [pendingStories, setPendingStories] = useState([]);
   const [users, setUsers] = useState([]); //useState(data[0].users); for my mock data
   
   
@@ -46,10 +46,36 @@ function App() {
       location: story.location,
       created_at: Date.now(),
       story_title: story.story_title,
-      story_description: story.story_text,
+      story_description: story.story_description,
       approved_story: false
     }
     setStories([...stories, newStory]);
+    console.log('In addNewStory');
+    console.log(newStory);
+    console.log(stories);
+  }
+
+  const modifyStory = story => {
+    const storyToModify = stories.find(item => item.id === story.id);
+    //Make a copy of the story, with its approved_story set to true.
+    //Note: Later, if we want to add functionality to modify other fields, we
+    //could add another parameter to this function of which prop to modify.
+    const editedStory = {
+        id: storyToModify.id,
+        author: storyToModify.author,
+        location: storyToModify.location,
+        created_at: storyToModify.created_at,
+        story_title: storyToModify.story_title,
+        story_description: storyToModify.story_description,
+        approved_story: true
+      }
+    console.log(editedStory);
+    //Get all the stories, besides the edited one.
+    let restOfStories = stories.filter(item => item.id !== storyToModify.id);
+    //Add the edited one to the stories array and set it as state.
+    restOfStories.unshift(editedStory);
+    setStories(restOfStories);
+    console.log(stories);
   }
 
   return (
@@ -61,6 +87,7 @@ function App() {
       <Route exact path='/stories' render={({props}) => <Stories {...props} stories={stories}/>} />
       <Route path='/submission' render={({props}) => <SubmissionForm {...props} addNewStory={addNewStory}/>} />
       <Route exact path='/stories/:storyID' render={ props => <StoryCard {...props} stories={stories}/>} />
+      <Route path='/pending' render={({props}) => <PendingStories {...props} stories={stories} modifyStory={modifyStory}/>} />
     </div>
   );
 }
