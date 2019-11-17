@@ -17,7 +17,7 @@ import PendingStories from './components/PendingStories';
 function App() {
   const [stories, setStories] = useState([]); //useState(data[1].stories) for my mock data
   const [users, setUsers] = useState([]); //useState(data[0].users); for my mock data
-  
+  const [loggedIn, setLoggedIn] = useState(false);
   
   useEffect (() => {
     axios.get(`https://bw-refugees.herokuapp.com/stories`)
@@ -83,12 +83,23 @@ function App() {
     setStories(storiesToKeep);
   }
 
+  function findUser(user) {
+    //TODO: Add checking password functionality once we have access to passwords in mock data
+    const winner = users.find(entry => entry.username === user.username);
+    if (winner) {
+      console.log(`Found user ${winner.username}`);
+      setLoggedIn(true);
+    } else {
+      console.log('did not find you');
+    }
+  }
+
   return (
     <div>
       <Nav />
       <Route exact path='/' component={Home} />
       <Route path='/about' component={About} />
-      <Route path='/login' component={LoginForm} />
+      <Route path='/login' render={({props}) => <LoginForm {...props} findUser={findUser} loggedIn={loggedIn}/>} />
       <Route exact path='/stories' render={({props}) => <Stories {...props} stories={stories}/>} />
       <Route path='/submission' render={({props}) => <SubmissionForm {...props} addNewStory={addNewStory}/>} />
       <Route exact path='/stories/:storyID' render={ props => <StoryCard {...props} stories={stories}/>} />
