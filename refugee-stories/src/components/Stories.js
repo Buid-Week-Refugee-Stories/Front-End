@@ -3,8 +3,11 @@ import StoryCardForGrid from './StoryCardForGrid';
 import children from '../images/children.jpg';
 
 function Stories( { stories }) {
-    
-    const approvedStories = stories.filter(story=> story.approved_story);
+  let approvedStories = [];
+  {if (approvedStories.length > 1) {
+  approvedStories.push(stories.filter(story => !story.approved_story));
+  }}
+  
     return (
       <div> 
         <h1>Refugee Stories</h1>
