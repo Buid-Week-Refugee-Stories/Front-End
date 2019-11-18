@@ -29,20 +29,25 @@ function SubmissionForm( {values, errors, touched}) {
         <Field type='text'
           name='location'
           placeholder='your location'
-        /><br />
+        />
+        {touched.location && errors.location && (<p>{errors.location}</p>)}
+        <br />
 
         <label htmlFor='story_title'>Title: </label>
         <Field type='text'
           name='story_title'
           placeholder='title'
          />
+        {touched.story_title && errors.story_title && (<p>{errors.story_title}</p>)}
         <br />
 
         <label htmlFor='story_description'>Story: </label><br />
         <Field type='textarea'
           name='story_description'
           placeholder='your story here'
-        /><br />
+        />
+        {touched.story_description && errors.story_description && (<p>{errors.story_description}</p>)}
+        <br />
 
         <button type='submit'>Submit Story</button>
 
