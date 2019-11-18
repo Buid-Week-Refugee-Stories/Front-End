@@ -10,7 +10,6 @@
 
 body {
   color: #252A33;
-  
   font-family: 'Alata', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -97,6 +96,12 @@ input, textarea {
 
 [placeholder] {
   padding-left: 1rem;
+  font-family: 'Alata', sans-serif;
+}
+
+textarea {
+  height: 15rem;
+  width: 55%;
 }
 button {
   font-size: 3rem;

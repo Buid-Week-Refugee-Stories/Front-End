@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import refugees from '../images/refugees.jpg';
 
 
-function SubmissionForm( props ) {
-  const [story, setStory] = useState( {
+function SubmissionForm(props) {
+  const [story, setStory] = useState({
     author: '',
     location: '',
     story_title: '',
@@ -11,7 +11,7 @@ function SubmissionForm( props ) {
   });
 
   const handleChange = e => {
-    setStory({...story, [e.target.name]: e.target.value});
+    setStory({ ...story, [e.target.name]: e.target.value });
   }
 
   const submitForm = e => {
@@ -36,7 +36,7 @@ function SubmissionForm( props ) {
           id='author'
           placeholder='your name'
           onChange={handleChange}
-          value={story.author}/><br />
+          value={story.author} /><br />
 
         <label htmlFor='location'>Your location: </label>
         <input type='text'
@@ -47,20 +47,23 @@ function SubmissionForm( props ) {
           value={story.location} /><br />
 
         <label htmlFor='story_title'>Title: </label>
-        <input type='text' 
-          name='story_title' 
-          id='story_title' 
+        <input type='text'
+          name='story_title'
+          id='story_title'
           placeholder='title'
           onChange={handleChange}
-          value={story.story_title}/><br />
+          value={story.story_title}
+          required />
+        <br />
 
-        <label htmlFor='story_description'>Story: </label>
+        <label htmlFor='story_description'>Story: </label><br />
         <textarea
           name='story_description'
           id='story_description'
           placeholder='your story here'
           onChange={handleChange}
-          value={story.story_description} /><br />
+          value={story.story_description}
+          required /><br />
 
         <button type='submit'>Submit Story</button>
 

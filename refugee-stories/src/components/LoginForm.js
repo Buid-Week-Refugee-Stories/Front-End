@@ -28,7 +28,8 @@ function LoginForm( {findUser, loggedIn}) {
               value={userInput.username} 
               id='username' 
               placeholder='username'
-              onChange={handleChange}/><br />
+              onChange={handleChange}
+              required/><br />
 
             <label htmlFor='password'>Password: </label>
             <input type='password' 
@@ -36,7 +37,8 @@ function LoginForm( {findUser, loggedIn}) {
               value={userInput.password} 
               id='password'
               placeholder='********'
-              onChange={handleChange} /><br />
+              onChange={handleChange}
+              required /><br />
 
             <button type='submit'>Log In</button>
         </form>
