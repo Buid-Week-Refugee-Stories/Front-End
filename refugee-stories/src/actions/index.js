@@ -8,12 +8,12 @@ export const FETCH_DATA_FAIL = 'FETCH_DATA_FAIL';
 // Create action to fetch stories.
 export const fetchStories = () => dispatch => {
 
-    dispatch(FETCH_DATA_START);
+    dispatch({ type: FETCH_DATA_START });
 
     axios.get(`https://bw-refugees.herokuapp.com/stories`)
         .then(res => {
             dispatch({
-                type: FETCH_DATA_SUCCESS, 
+                type: FETCH_DATA_SUCCESS,
                 payload: res.data
             });
 
@@ -26,5 +26,5 @@ export const fetchStories = () => dispatch => {
             });
 
             console.log(err);
-        });  
+        });
 }
