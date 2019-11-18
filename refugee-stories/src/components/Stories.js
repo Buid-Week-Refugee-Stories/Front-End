@@ -1,6 +1,7 @@
 import React from 'react';
 import StoryCardForGrid from './StoryCardForGrid';
 import children from '../images/children.jpg';
+import { connect } from 'react-redux';
 
 function Stories( { stories }) {
     
@@ -23,5 +24,13 @@ function Stories( { stories }) {
       </div>
     );
   }
+
+  const mapStateToProps = (state) => {
+    return {
+      stories: state.stories,
+      isFetching: state.isFetching
+    }
+  }
   
-  export default Stories;
+  // export default Stories;
+  export default connect(mapStateToProps, {})(Stories);

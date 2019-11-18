@@ -19,6 +19,24 @@ const reducer = (state = initialState, action) => {
                 isAdding: false,
                 approved: false
             }
+        case FETCH_DATA_SUCCESS:
+            return {
+                ...state,
+                stories: action.payload,
+                isFetching: false,
+                error: null,
+                isAdding: false,
+                approved: false
+            }
+        case FETCH_DATA_FAIL:
+            return {
+                ...state,
+                stories: [],
+                isFetching: false,
+                error: action.payload,
+                isAdding: false,
+                approved: false
+            }
         default:
             return state
     }
