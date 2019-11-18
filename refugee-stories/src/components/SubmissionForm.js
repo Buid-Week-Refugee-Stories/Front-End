@@ -1,16 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import refugees from '../images/refugees.jpg';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 
-function SubmissionForm( {values, errors, touched}) {
-  const [story, setStory] = useState({
-    author: '',
-    location: '',
-    story_title: '',
-    story_description: ''
-  });
+function SubmissionForm( {values, errors, touched, props}) {
   
   return (
     <div>
@@ -83,12 +77,11 @@ const FormikSubmissionForm = withFormik({
       .required('Story content is required')
   }),
   
-  handleSubmit(values) {
+  handleSubmit(values, tools) {
     console.log(values);
-    //TODO: Figure out how to do these 2 things:
-    //setStory(values);
-    //props.addNewStory(story);
-    
+    tools.props.addNewStory(values);
+    tools.resetForm();
+    //TODO: Add POST axios call here to backend once that is ready.
   }
 })(SubmissionForm);
 
