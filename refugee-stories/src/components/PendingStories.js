@@ -4,7 +4,11 @@ import AdminForm from './AdminForm';
 import welcomeWall from '../images/welcomeWall.jpg';
 
 function PendingStories( {stories, modifyStory, deleteStory}) {
-    const unapproved = stories.filter(story => !story.approved_story);
+    let unapproved = [];
+    {if (stories.length > 1) {
+    unapproved.push(stories.filter(story => !story.approved_story));
+    }}
+
     return (
       <div> 
         <h2>Pending Stories</h2>
