@@ -4,7 +4,7 @@ import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 
 
-function SubmissionForm(props) {
+function SubmissionForm( {values, errors, touched}) {
   const [story, setStory] = useState({
     author: '',
     location: '',
@@ -20,7 +20,10 @@ function SubmissionForm(props) {
         <Field type='text'
           name='author'
           placeholder='your name'
-        /><br />
+        />
+        {touched.author && errors.author && (<p>{errors.author}</p>)}
+        <br />
+        
 
         <label htmlFor='location'>Your location: </label>
         <Field type='text'
