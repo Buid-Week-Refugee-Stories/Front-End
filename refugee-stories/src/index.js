@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import reducer from './reducer';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Redux
 import { createStore, applyMiddleware} from 'redux';

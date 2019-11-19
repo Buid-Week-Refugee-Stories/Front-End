@@ -6,7 +6,7 @@ import RefugeeStoriesLogo from '../images/RefugeeStoriesLogo.png';
 
 const Nav = () => {
     return (
-    <nav>
+    <nav className='mainNav'>
         <NavLink to='/'>
             <div className='imgContainer'>
                 <img src={RefugeeStoriesLogo} className='logo' alt='home' />
