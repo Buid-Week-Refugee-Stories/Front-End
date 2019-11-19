@@ -84,8 +84,8 @@ function App() {
       <Route path='/login' component={LoginForm} />
       <Route exact path='/stories' component={Stories} />
       <Route path='/submission' render={({props}) => <SubmissionForm {...props} addNewStory={addNewStory}/>} />
-      <Route exact path='/stories/:storyID' render={ props => <StoryCard {...props} stories={stories}/>} />
-      {/* <Route path='/pending' render={({props}) => <PendingStories {...props} stories={stories} modifyStory={modifyStory} deleteStory={deleteStory}/>} /> */}
+      <Route exact path='/stories/:storyID' component={StoryCard} />
+      {/* <Route exact path='/stories/:storyID' render={ props => <StoryCard {...props} stories={stories}/>} /> */}
       <PrivateRoute path='/pending' component={PendingStories} />
       <Footer />
     </div>

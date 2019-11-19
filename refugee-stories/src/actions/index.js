@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {axiosWithAuth} from '../components/axiosWithAuth';
 
 // Action types.
 export const FETCH_DATA_START = 'FETCH_DATA_START';
@@ -18,7 +19,7 @@ export const fetchStories = () => dispatch => {
 
     dispatch({ type: FETCH_DATA_START });
 
-    axios.get(`https://bw-refugees.herokuapp.com/stories`)
+    axios.get('https://bw-refugees.herokuapp.com/stories')
         .then(res => {
             dispatch({
                 type: FETCH_DATA_SUCCESS,
@@ -40,7 +41,7 @@ export const fetchStories = () => dispatch => {
 export const addStory = (story) => dispatch => {
     dispatch({ type: POST_DATA_START });
 
-    axios.post('https://bw-refugees.herokuapp.com/stories', story)
+    axiosWithAuth.post('https://bw-refugees.herokuapp.com/stories', story)
         .then(res => {
 
             dispatch({
@@ -64,7 +65,7 @@ export const addStory = (story) => dispatch => {
 export const deleteStory = (id) => dispatch => {
     dispatch({ type: DELETE_DATA_START });
 
-    axios.delete(`https://bw-refugees.herokuapp.com/stories/:${id}`)
+    axiosWithAuth.delete(`https://bw-refugees.herokuapp.com/stories/:${id}`)
         .then(res =>
             console.log(res)
             // dispatch({type: DELETE_DATA_SUCCESS, payload: res.data});
