@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import welcome from '../images/welcome.jpg';
+import axios from 'axios';
 
-function LoginForm( {findUser, loggedIn}) {
+function LoginForm() {
+
   const [userInput, setUserInput] = useState({
     username: '',
     password: ''
@@ -13,12 +15,26 @@ function LoginForm( {findUser, loggedIn}) {
 
   function submitForm(e) {
     e.preventDefault();
-    findUser(userInput);
+
+    axios.get('https://bw-refugees.herokuapp.com/auth/login', userInput)
+      .then(res => {
+        console.log(res.data)
+        // localStorage.setItem('token', res.token);
+        // props.history.push('/pendingStories');
+      })
+      .catch(err => {
+        console.log("Login error:",err);
+      })
+
+      setUserInput({
+        ...userInput,
+        username: '',
+        password: ''
+      });
   }
 
   return (
     <div>
-      {!loggedIn?
       <div> 
         <h2> Log In To Refugee Stories</h2>
         <form onSubmit={submitForm}>
@@ -27,7 +43,7 @@ function LoginForm( {findUser, loggedIn}) {
               name='username' 
               value={userInput.username} 
               id='username' 
-              placeholder='username'
+              placeholder='Enter username'
               onChange={handleChange}
               required/><br />
 
@@ -36,18 +52,18 @@ function LoginForm( {findUser, loggedIn}) {
               name='password' 
               value={userInput.password} 
               id='password'
-              placeholder='********'
+              placeholder='Enter password'
               onChange={handleChange}
               required /><br />
 
             <button type='submit'>Log In</button>
         </form>
         </div>
-      : <div>
+        {/* <div>
           <h2>Welcome back, {userInput.username}.</h2>
           <p>You are logged in.</p>
           <p> You may now approve and delete pending stories.</p>
-        </div>}
+        </div> */}
         
         <div className='imgContainer'>
           <img src={welcome} alt='building with refugees welcome banner' />

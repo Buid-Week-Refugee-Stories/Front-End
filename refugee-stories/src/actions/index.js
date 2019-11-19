@@ -5,6 +5,14 @@ export const FETCH_DATA_START = 'FETCH_DATA_START';
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 export const FETCH_DATA_FAIL = 'FETCH_DATA_FAIL';
 
+export const POST_DATA_START = 'POST_DATA_START';
+export const POST_DATA_SUCCESS = 'POST_DATA_SUCCESS';
+export const POST_DATA_FAIL = 'POST_DATA_FAIL';
+
+export const DELETE_DATA_START = 'DELETE_DATA_START';
+export const DELETE_DATA_SUCCESS = 'DELETE_DATA_SUCCESS';
+export const DELETE_DATA_FAIL = 'DELETE_DATA_FAIL';
+
 // Create action to fetch stories.
 export const fetchStories = () => dispatch => {
 
@@ -28,3 +36,33 @@ export const fetchStories = () => dispatch => {
             console.log(err);
         });
 }
+
+export const addStory = (story) => dispatch => {
+    dispatch({ type: POST_DATA_START });
+
+    axios.post('url', story)
+        .then(res => {
+
+            dispatch({
+                type: POST_DATA_SUCCESS,
+                payload: story
+            });
+
+            console.log(res.data);
+        })
+        .catch(err => {
+
+            dispatch({
+                type: POST_DATA_FAIL,
+                payload: err
+            });
+
+            console.log(err);
+        });
+}
+
+// export const deleteStory = (id) => dispatch => {
+//     dispatch({ type: DELETE_DATA_START });
+
+
+// }

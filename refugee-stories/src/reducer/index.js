@@ -37,6 +37,15 @@ const reducer = (state = initialState, action) => {
                 isAdding: false,
                 approved: false
             }
+        case POST_DATA_START:
+            return {
+                ...state,
+                stories: [],
+                isFetching: false,
+                error: action.payload,
+                isAdding: true,
+                approved: false
+            }
         default:
             return state
     }
