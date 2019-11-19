@@ -1,7 +1,94 @@
-import React, { useState } from 'react';
+import React from 'react';
 import refugees from '../images/refugees.jpg';
+import { withFormik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 
 
+function SubmissionForm( {values, errors, touched, props}) {
+  
+  return (
+    <div>
+      <h2>Submit Your Story</h2>
+      <Form>
+        <label htmlFor='author'>Your name: </label>
+        <Field type='text'
+          name='author'
+          placeholder='your name'
+        />
+        {touched.author && errors.author && (<p>{errors.author}</p>)}
+        <br />
+        
+
+        <label htmlFor='location'>Your location: </label>
+        <Field type='text'
+          name='location'
+          placeholder='your location'
+        />
+        {touched.location && errors.location && (<p>{errors.location}</p>)}
+        <br />
+
+        <label htmlFor='story_title'>Title: </label>
+        <Field type='text'
+          name='story_title'
+          placeholder='title'
+         />
+        {touched.story_title && errors.story_title && (<p>{errors.story_title}</p>)}
+        <br />
+
+        <label htmlFor='story_description'>Story: </label><br />
+        <Field type='textarea'
+          name='story_description'
+          placeholder='your story here'
+        />
+        {touched.story_description && errors.story_description && (<p>{errors.story_description}</p>)}
+        <br />
+
+        <button type='submit'>Submit Story</button>
+
+      </Form>
+
+      <div className="imgContainer">
+        <img src={refugees} alt='refugees standing at a seashore' />
+      </div>
+    </div>
+  );
+}
+
+const FormikSubmissionForm = withFormik({
+  mapPropsToValues( { author, location, story_title, story_description }) {
+    return {
+      author: author || '',
+      location: location || '',
+      story_title: story_title || '',
+      story_description: story_description || ''
+    };
+  },
+  
+  validationSchema: Yup.object().shape({
+    author: Yup.string().min(2, 'Name is too short')
+      .max(50, 'Name is too long'),
+    location: Yup.string().min(2, 'Location name is too short')
+      .max(50, 'Location name is too long'),
+    story_title: Yup.string().min(2, 'Story title is too short')
+      .max(50, 'Story title is too long')
+      .required('A title is required'),
+    story_description: Yup.string().min(10, 'Story content needs to be longer')
+      .max(20000, 'Story content is too long. Edit your story, or submit it in muliple parts. Thank you.')
+      .required('Story content is required')
+  }),
+  
+  handleSubmit(values, tools) {
+    console.log(values);
+    tools.props.addNewStory(values);
+    tools.resetForm();
+    //TODO: Add POST axios call here to backend once that is ready.
+  }
+})(SubmissionForm);
+
+export default FormikSubmissionForm;
+
+// Here is the original code, before Formik:
+/*
 function SubmissionForm(props) {
   const [story, setStory] = useState({
     author: '',
@@ -77,3 +164,4 @@ function SubmissionForm(props) {
 }
 
 export default SubmissionForm;
+*/
