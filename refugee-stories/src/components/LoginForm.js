@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import welcome from '../images/welcome.jpg';
 import axios from 'axios';
 
-function LoginForm() {
+function LoginForm(props) {
 
   const [userInput, setUserInput] = useState({
     username: '',
@@ -16,11 +16,11 @@ function LoginForm() {
   function submitForm(e) {
     e.preventDefault();
 
-    axios.get('https://bw-refugees.herokuapp.com/auth/login', userInput)
+    axios.post('https://bw-refugees.herokuapp.com/auth/login', userInput)
       .then(res => {
         console.log(res.data)
-        // localStorage.setItem('token', res.token);
-        // props.history.push('/pendingStories');
+        localStorage.setItem('token', res.token);
+        props.history.push('/pending');
       })
       .catch(err => {
         console.log("Login error:",err);
