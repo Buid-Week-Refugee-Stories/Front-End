@@ -19,15 +19,6 @@ function App() {
   const [stories, setStories] = useState([]); //useState(data[1].stories) for my mock data
   const [users, setUsers] = useState([]); //useState(data[0].users); for my mock data
   const [loggedIn, setLoggedIn] = useState(false);
-  
-  useEffect (() => {
-    axios.get(`https://bw-refugees.herokuapp.com/stories`)
-    .then(res => {
-      setStories(res.data);
-      //console.log(res.data)
-    })
-    .catch(err => console.log(err));  
-  }, []);
 
   useEffect(() => {
     axios.get(`https://bw-refugees.herokuapp.com/users`)
@@ -102,7 +93,7 @@ function App() {
       <Route exact path='/' component={Home} />
       <Route path='/about' component={About} />
       <Route path='/login' render={({props}) => <LoginForm {...props} findUser={findUser} loggedIn={loggedIn}/>} />
-      <Route exact path='/stories' render={({props}) => <Stories {...props} stories={stories}/>} />
+      <Route exact path='/stories' component={Stories} />
       <Route path='/submission' render={({props}) => <SubmissionForm {...props} addNewStory={addNewStory}/>} />
       <Route exact path='/stories/:storyID' render={ props => <StoryCard {...props} stories={stories}/>} />
       <Route path='/pending' render={({props}) => <PendingStories {...props} stories={stories} modifyStory={modifyStory} deleteStory={deleteStory}/>} />
