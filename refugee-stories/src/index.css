@@ -42,7 +42,7 @@ a {
   color: #252A33; 
 }
 
-nav a {
+.mainNav a {
   color: #8CA744;
 }
 
@@ -52,7 +52,7 @@ nav a {
 }
 
 
-nav a:hover {
+.mainNav a:hover {
   font-style: italic;
   transform: scale(1.2);
   transition: all .2s ease-in-out;
@@ -75,7 +75,7 @@ img {
   max-width: 100%;
 }
 
-nav {
+.mainNav {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
@@ -160,8 +160,23 @@ nav.footerNav {
   justify-content: center;
   align-items: flex-start;
   border: none;
+  color: #8CA744;
 }
 
 footer img {
   max-width: 10rem;
+}
+
+.carousel-caption {
+  background: rgba(37,42,51, 0.7);
+  padding: 1rem;
+  font-family: 'Alata', sans-serif;
+}
+
+.carousel-caption h3 {
+  font-family: 'Bebas Neue', cursive;
+}
+
+.homeText {
+  margin-top: 3rem;
 }

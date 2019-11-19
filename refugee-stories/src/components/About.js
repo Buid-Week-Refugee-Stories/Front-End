@@ -3,9 +3,9 @@ import handsTogether from '../images/handsTogether.jpg';
 
 function About() {
     return (
-      <div> 
+      <div style={{textAlign: 'center'}}> 
         <h1>About Us</h1>
-        <p>To be replaced with Jasmine's About Us Page</p>
+        <p>Refugee Stories Group</p>
         <div className='imgContainer'>
           <img src={handsTogether} alt='hands together' />
         </div>
