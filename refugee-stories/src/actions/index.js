@@ -40,7 +40,7 @@ export const fetchStories = () => dispatch => {
 export const addStory = (story) => dispatch => {
     dispatch({ type: POST_DATA_START });
 
-    axios.post('url', story)
+    axios.post('https://bw-refugees.herokuapp.com/stories', story)
         .then(res => {
 
             dispatch({
@@ -61,8 +61,17 @@ export const addStory = (story) => dispatch => {
         });
 }
 
-// export const deleteStory = (id) => dispatch => {
-//     dispatch({ type: DELETE_DATA_START });
+export const deleteStory = (id) => dispatch => {
+    dispatch({ type: DELETE_DATA_START });
 
+    axios.delete(`https://bw-refugees.herokuapp.com/stories/:${id}`)
+        .then(res =>
+            console.log(res)
+            // dispatch({type: DELETE_DATA_SUCCESS, payload: res.data});
+        )
+        .catch(err => {
+            dispatch({type: DELETE_DATA_FAIL});
+            console.log(err);
+        })
 
-// }
+}
