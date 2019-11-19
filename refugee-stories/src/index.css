@@ -120,8 +120,7 @@ button:hover {
   width: 48%;
   margin: 1rem auto;
   padding: 2rem;
-  border: 2px solid #C3BEB2;
-  border-radius: 2px;
+  
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -138,7 +137,8 @@ button:hover {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: flex-start;
+  align-content: space-between;
 }
 
 .logo {

@@ -16,7 +16,7 @@ function Stories({ stories, fetchStories }) {
   console.log("Stories from reducer:", stories);
   return (
     <div>
-      <h1>Refugee Stories</h1>
+      <h1 style={{textAlign: 'center', marginTop: '4rem'}}>Refugee Stories</h1>
 
       <div className='cardContainer'>
         {stories.map(story => (
