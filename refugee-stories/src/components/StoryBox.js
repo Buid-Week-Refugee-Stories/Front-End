@@ -1,22 +1,56 @@
 import React from 'react';
+import {
+  Card, CardImg, CardTitle, CardText, CardSubtitle, CardBody } from 'reactstrap';
+
+const titleStyles = {
+  fontSize: '4rem',
+  fontFamily: ['Bebas Neue', 'cursive'],
+  textAlign: 'center',
+  color: '#3D5B91'
+}
+
+const subtitleStyles = {
+  fontSize: '1.5rem',
+  margin: '0.5rem',
+  color: '#8CA744',
+  fontFamily: ['Alata', 'sans-serif']
+}
+
+const textStyles = {
+  fontSize: '2rem',
+  color: '#252A33', 
+  clear: 'both',
+  paddingTop: '1rem'
+}
+
+const imgStyles = {
+  width: '32%',
+  float: 'left',
+  marginRight: '0.75rem'
+}
 
 function StoryBox( { story }) {
 
   const date = new Date(story.created_at);
   
   return (
-    <div> 
-      <h2 className='title'>{story.story_title}</h2>
+    <Card>
+      <CardImg top width='100%' src={story.refugee_location_img} alt='location' />
+      <CardBody>
+      <CardTitle style={titleStyles}>{story.story_title}</CardTitle>
+
+      <CardImg src={story.avatar_image} style={imgStyles} alt='refugee' />
 
       {story.author? 
-      <h3>By {story.author}</h3>: null }
+      <CardSubtitle style={subtitleStyles}>By {story.author}</CardSubtitle>: null }
 
       {story.location?
-      <h3>Located in {story.location}</h3>: null }
+      <CardSubtitle style={subtitleStyles}>Located in {story.location}</CardSubtitle>: null }
 
-      <h3>Written on {date.toDateString()}</h3>
-      <p className='textContent'>{story.story_description}</p>
-    </div>
+      <CardSubtitle style={subtitleStyles}>Written on {date.toDateString()}</CardSubtitle>
+      <CardText style={textStyles}>{story.story_description}</CardText>
+      </CardBody>
+    </Card>
   );
 }
   
