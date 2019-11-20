@@ -77,12 +77,18 @@ img {
 
 .mainNav {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
   margin: 1rem 0;
   border-bottom: 1px solid#D7DDE1;
   font-family: 'Alata', sans-serif;
+}
+
+@media screen and (max-width: 400px) {
+  .mainNav {
+    flex-flow: column nowrap;
+  }
 }
 
 label {
