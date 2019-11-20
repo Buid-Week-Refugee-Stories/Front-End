@@ -41,3 +41,27 @@ export const fetchStories = () => dispatch => {
             console.log(err);
         });
 }
+
+// Create action to fetch stories.
+export const addStory = (story) => dispatch => {
+
+    dispatch({ type: POST_DATA_START });
+
+    axios.post('https://bw-refugees.herokuapp.com/stories', story)
+        .then(res => {
+            dispatch({
+                type: POST_DATA_SUCCESS,
+                payload: res.data
+            });
+
+            console.log(res.data)
+        })
+        .catch(err => {
+            dispatch({
+                type: POST_DATA_FAIL,
+                payload: err
+            });
+
+            console.log(err);
+        });
+}

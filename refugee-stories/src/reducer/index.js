@@ -4,8 +4,7 @@ const initialState = {
     stories: [],
     isFetching: false,
     error: null,
-    isAdding: false,
-    approved: false
+    isAdding: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -16,8 +15,7 @@ const reducer = (state = initialState, action) => {
                 stories: [],
                 isFetching: true,
                 error: null,
-                isAdding: false,
-                approved: false
+                isAdding: false
             }
         case FETCH_DATA_SUCCESS:
             return {
@@ -25,8 +23,7 @@ const reducer = (state = initialState, action) => {
                 stories: action.payload,
                 isFetching: false,
                 error: null,
-                isAdding: false,
-                approved: false
+                isAdding: false
             }
         case FETCH_DATA_FAIL:
             return {
@@ -34,8 +31,7 @@ const reducer = (state = initialState, action) => {
                 stories: [],
                 isFetching: false,
                 error: action.payload,
-                isAdding: false,
-                approved: false
+                isAdding: false
             }
         case POST_DATA_START:
             return {
@@ -43,8 +39,7 @@ const reducer = (state = initialState, action) => {
                 stories: [],
                 isFetching: false,
                 error: null,
-                isAdding: true,
-                approved: false
+                isAdding: true
             }
         case POST_DATA_SUCCESS: {
             return {
@@ -52,8 +47,7 @@ const reducer = (state = initialState, action) => {
                 stories: [...state.stories, action.payload],
                 isFetching: false,
                 error: null,
-                isAdding: false,
-                approved: true
+                isAdding: false
             }
         }
         case POST_DATA_FAIL: {
@@ -62,8 +56,7 @@ const reducer = (state = initialState, action) => {
                 stories: [],
                 isFetching: false,
                 error: action.payload,
-                isAdding: false,
-                approved: false
+                isAdding: false
             }
         }
         default:
