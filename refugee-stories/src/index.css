@@ -145,14 +145,26 @@ img {
 
 /* Form Styles */
 
+.forms {
+  text-align: center;
+  width: 33vw;
+  min-width: 200px;
+  margin: 2rem auto;
+  font-family: 'Alata', sans-serif;
+}
+
 label {
   font-size: 1.5rem;
   color: #C12E29;
 }
 
-input, textarea {
+input, textarea, .bigInput {
   font-size: 2rem;
   margin: 2rem;
+}
+
+.bigInput {
+  font-size: 2rem;
 }
 
 [placeholder] {

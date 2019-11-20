@@ -3,14 +3,6 @@ import welcome from '../images/welcome.jpg';
 import axios from 'axios';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
-const formStyles = {
-  textAlign: 'center',
-  width: '33vw',
-  margin: '2rem auto',
-  fontFamily: ['Alata', 'sans-serif'],
-  minWidth: '200px'
-}
-
 function LoginForm(props) {
 
   const [userInput, setUserInput] = useState({
@@ -45,8 +37,8 @@ function LoginForm(props) {
   return (
     <div>
       <div> 
-        <h1 style={{textAlign: 'center', marginTop: '4rem'}}> Log In To Refugee Stories</h1>
-        <Form onSubmit={submitForm} style={formStyles}>
+        <h1 className='mainH1'>Log in to Refugee Stories</h1> 
+        <Form onSubmit={submitForm} className='forms'>
           <FormGroup>
             <Label htmlFor="username">Username: </Label>
             <Input type='text' 
@@ -71,7 +63,7 @@ function LoginForm(props) {
               required /><br />
           </FormGroup>
 
-            <Button type='submit' size='lg' color='warning' style={{padding: '1.5rem'}}>Log In</Button>
+            <Button type='submit' size='lg' color='warning' style={{padding: '1rem 1.5rem'}}>Log In</Button>
         </Form>
         </div>
         {/* <div>
