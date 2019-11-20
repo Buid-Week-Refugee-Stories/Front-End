@@ -12,6 +12,7 @@ import Nav from './components/Nav';
 import StoryCard from './components/StoryCard';
 import PendingStories from './components/PendingStories';
 import Footer from './components/Footer';
+import Connect from './components/Connect';
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
       <Route path='/login' component={LoginForm} />
       <Route exact path='/stories' component={Stories} />
       <Route path='/submission' component={SubmissionForm} />
+      <Route path='/connect' component={Connect} />
       <Route exact path='/stories/:storyID' component={StoryCard} />
       <PrivateRoute path='/pending' component={PendingStories} />
       <Footer />
