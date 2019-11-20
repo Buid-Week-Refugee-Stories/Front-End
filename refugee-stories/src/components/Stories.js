@@ -19,7 +19,7 @@ function Stories({ stories, fetchStories }) {
 
   return (
     <div>
-      <h1 style={{textAlign: 'center', marginTop: '4rem'}}>Refugee Stories</h1>
+      <h1 className='mainH1'>Refugee Stories</h1>
 
       <div className='cardContainer'>
         {approvedStories.map(story => (

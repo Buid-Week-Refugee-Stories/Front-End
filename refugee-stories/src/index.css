@@ -158,13 +158,9 @@ label {
   color: #C12E29;
 }
 
-input, textarea, .bigInput {
+input, textarea {
   font-size: 2rem;
   margin: 2rem;
-}
-
-.bigInput {
-  font-size: 2rem;
 }
 
 [placeholder] {
