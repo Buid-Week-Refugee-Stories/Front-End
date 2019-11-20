@@ -51,11 +51,11 @@ a {
   color: #334E29;
 }
 
-
 .mainNav a:hover {
   font-style: italic;
   transform: scale(1.2);
   transition: all .2s ease-in-out;
+  text-decoration: none;
 }
 
 .inlineLink {
@@ -82,6 +82,7 @@ img {
   align-items: center;
   margin: 1rem 0;
   border-bottom: 1px solid#D7DDE1;
+  font-family: 'Alata', sans-serif;
 }
 
 label {
