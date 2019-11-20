@@ -8,6 +8,7 @@ import {
   CarouselIndicators,
   CarouselCaption
 } from 'reactstrap';
+import { Tween } from 'react-gsap';
 import refugeesMosaic from '../images/refugeesMosaic.jpg';
 import refugees from '../images/refugees.jpg';
 import handsTogether from '../images/handsTogether.jpg';
@@ -71,11 +72,18 @@ function Home() {
   });
 
   return (
-    <div style={{textAlign: 'center'}}>
-      <h1>Refugee Stories</h1>
-      <h2><Link to='/stories' className='inlineLink'>Learn</Link> about the lives of refugees.</h2>
-      <h2><Link to='/submission' className='inlineLink'>Share</Link> your stories.</h2>
+    <div >
+      <Tween from={{ scale: 0}}>
+      <h1 className='mainH1'>Refugee Stories</h1>
+      </Tween>
       
+      <Tween from={{ xPercent: 100, opacity: 0, scale: 0}}>
+        <h2><Link to='/stories' className='inlineLink'>Learn</Link> about the lives of refugees.</h2>
+      </Tween>
+      <Tween from={{ xPercent: -100, opacity: 0, scale: 0}}>
+        <h2><Link to='/submission' className='inlineLink'>Share</Link> your stories.</h2>
+      </Tween>
+
       <Carousel
       activeIndex={activeIndex}
       next={next}
@@ -87,7 +95,7 @@ function Home() {
       <CarouselControl direction="next" directionText="Next" onClickHandler={next} />
     </Carousel>
 
-      <h3 className='homeText'>Global citizenship starts with awareness, empathy, and the ability to change. 
+      <h3 className='homeText'>Global citizenship starts with awareness, empathy, and the ability to change.<br /> 
         Unify humanity and celebrate cultures by sharing your experiences, 
         one story at a time. </h3>
     </div>

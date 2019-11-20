@@ -19,7 +19,11 @@ const Footer = () => {
         <div className="imgContainer">
             <img src={RefugeeStoriesLogo} alt='logo' />
         </div>
-
+        <a className='source' title="ערן [CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Blue_pencil_RTL.svg">Pencil Graphic from Wikimedia Commons</a><br />
+        <a className='source' title="Designmodo http://www.designmodo.com/ [CC BY 3.0 (https://creativecommons.org/licenses/by/3.0)], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Linecons_speech-bubble.svg">Speech Bubble Graphic from Wikimedia Commons</a>
+        <br />
+        <a className='source' title="Toilets_unisex.svg: Albedo-ukr
+derivative work: Albedo-ukr [Public domain], via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:Family_3.svg">Family Graphic from Wikimedia Commons</a>
         <p> © 2019 by Refugee Stories Group</p>
     </footer>
     )

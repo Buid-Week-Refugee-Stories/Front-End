@@ -1,57 +1,88 @@
 import React from 'react';
 import refugees from '../images/refugees.jpg';
+import pencil from '../images/pencil.svg';
+import family from '../images/family.png';
+import speechBubble from '../images/speechBubble.svg';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { addStory } from '../actions';
 import { connect } from 'react-redux';
+import { Label, FormGroup, Button } from 'reactstrap';
+import { Tween } from 'react-gsap';
+ 
 
 
 function SubmissionForm( {values, errors, touched, props}) {
   
   return (
     <div>
-      <h2>Submit Your Story</h2>
-      <Form>
-        <label htmlFor='author'>Your name: </label>
-        <Field type='text'
-          name='author'
-          placeholder='your name'
-        />
-        {touched.author && errors.author && (<p>{errors.author}</p>)}
-        <br />
-        
+      <Tween from={{ scale: 0}}>
+        <h1 className='mainH1'>Submit Your Story</h1>
+      </Tween>
 
-        <label htmlFor='location'>Your location: </label>
-        <Field type='text'
-          name='location'
-          placeholder='your location'
-        />
-        {touched.location && errors.location && (<p>{errors.location}</p>)}
-        <br />
 
-        <label htmlFor='story_title'>Title: </label>
-        <Field type='text'
-          name='story_title'
-          placeholder='title'
-         />
-        {touched.story_title && errors.story_title && (<p>{errors.story_title}</p>)}
-        <br />
+      <Tween duration={2} to={{rotation:720, x:'40vw'}}>
+        <img src={pencil} alt='pencil' style={{ display: 'inline-block', margin: 'auto', width: '4rem'}} />
+      </Tween>
 
-        <label htmlFor='story_description'>Story: </label><br />
-        <Field type='textarea'
-          name='story_description'
-          placeholder='your story here'
-        />
-        {touched.story_description && errors.story_description && (<p>{errors.story_description}</p>)}
-        <br />
+      <Tween duration={1.5} to={{ x:'45vw'}}>
+        <img src={family} alt='family' style={{ display: 'inline-block', margin: 'auto', width: '5rem'}} />
+      </Tween>
 
-        <button type='submit'>Submit Story</button>
+      <Tween duration={3} from={{rotation:720, x: '55vw', scale: 1.5}}>
+        <img src={speechBubble} alt='speech bubble' style={{ display: 'inline-block', margin: 'auto', width: '4rem', left: '50vw', position: 'relative'}} />
+      </Tween>
+
+      <Form className='forms'>
+
+        <FormGroup>
+          <Label htmlFor='author'>Your name: </Label>
+          <Field type='text'
+            name='author'
+            placeholder='your name'
+          />
+          {touched.author && errors.author && (<p>{errors.author}</p>)}
+          <br />
+        </FormGroup>
+
+        <FormGroup>
+          <Label htmlFor='location'>Your location: </Label>
+          <Field type='text'
+            name='location'
+            placeholder='your location'
+          />
+          {touched.location && errors.location && (<p>{errors.location}</p>)}
+          <br />
+        </FormGroup>
+
+        <FormGroup>
+          <Label htmlFor='story_title'>Title: </Label>
+          <Field type='text'
+            name='story_title'
+            placeholder='title'
+          />
+          {touched.story_title && errors.story_title && (<p>{errors.story_title}</p>)}
+          <br />
+        </FormGroup>
+
+        <FormGroup>
+          <Label htmlFor='story_description'>Story: </Label><br />
+          <Field component='textarea'
+            name='story_description'
+            placeholder='your story here'
+          />
+          {touched.story_description && errors.story_description && (<p>{errors.story_description}</p>)}
+          <br />
+        </FormGroup>
+
+        <Button type='submit' size='lg' color='warning' style={{width: '50%', margin: 'auto'}}>Submit Story</Button>
 
       </Form>
 
       <div className="imgContainer">
         <img src={refugees} alt='refugees standing at a seashore' />
       </div>
+
     </div>
   );
 }

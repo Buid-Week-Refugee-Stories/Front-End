@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import welcome from '../images/welcome.jpg';
 import axios from 'axios';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Tween } from 'react-gsap';
 
 function LoginForm(props) {
 
@@ -36,28 +38,38 @@ function LoginForm(props) {
   return (
     <div>
       <div> 
-        <h2> Log In To Refugee Stories</h2>
-        <form onSubmit={submitForm}>
-            <label htmlFor="username">Username: </label>
-            <input type='text' 
+        <Tween from={{ scale: 0}}>
+          <h1 className='mainH1'>Log in to Refugee Stories</h1>
+        </Tween>
+
+        <Form onSubmit={submitForm} className='forms'>
+          
+          <FormGroup>
+            <Label htmlFor="username">Username: </Label>
+            <Input type='text' 
               name='username' 
               value={userInput.username} 
               id='username' 
               placeholder='Enter username'
               onChange={handleChange}
-              required/><br />
+              required
+             />
+             <br />
+          </FormGroup>
 
-            <label htmlFor='password'>Password: </label>
-            <input type='password' 
+          <FormGroup>
+            <Label htmlFor='password'>Password: </Label>
+            <Input type='password' 
               name='password' 
               value={userInput.password} 
               id='password'
               placeholder='Enter password'
               onChange={handleChange}
               required /><br />
+          </FormGroup>
 
-            <button type='submit'>Log In</button>
-        </form>
+            <Button type='submit' size='lg' color='warning' style={{width: '50%', margin: 'auto'}}>Log In</Button>
+        </Form>
         </div>
         {/* <div>
           <h2>Welcome back, {userInput.username}.</h2>

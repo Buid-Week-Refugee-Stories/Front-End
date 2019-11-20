@@ -18,23 +18,46 @@ body {
   text-align: center;
 }
 
+/* Heading Styles */
+
+h1, h2 {
+  text-align: center;
+}
+
 h1 {
   font-family: 'Bebas Neue', cursive;
   font-size: 8rem;
   letter-spacing: 1.2rem;
 }
 
+.mainH1 {
+  font-size: 6rem;
+  margin: 3rem auto;
+}
+
 h2 {
   font-size: 4rem;
+  font-family: 'Alata', sans-serif;
 }
 
 h3 {
   font-size: 2.5rem;
 }
 
+/* Text Styles */
+
 p {
   font-size: 1.6rem;
 }
+
+.homeText {
+  margin: 3rem;
+  text-align: center;
+  line-height: 4rem;
+  font-family: 'Alata', sans-serif;
+}
+
+/* Link and Nav Styles */
 
 a {
   text-decoration: none;
@@ -42,26 +65,76 @@ a {
   color: #252A33; 
 }
 
+.logo {
+  width: 4rem;
+}
+
+.source {
+  font-size: 1rem;
+  color: black;
+}
+
+.mainNav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1rem 0;
+  border-bottom: 1px solid#D7DDE1;
+  font-family: 'Alata', sans-serif;
+}
+
+@media screen and (max-width: 400px) {
+  .mainNav {
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+  }
+}
+
 .mainNav a {
   color: #8CA744;
 }
-
-.selected {
-  font-weight: bold;
-  color: #334E29;
-}
-
 
 .mainNav a:hover {
   font-style: italic;
   transform: scale(1.2);
   transition: all .2s ease-in-out;
+  text-decoration: none;
+}
+
+a.selected {
+  font-weight: bold;
+  color: #334E29;
 }
 
 .inlineLink {
   font-size: 4rem;
   color: #8CA744;
 }
+
+.footerNav {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: none;
+  color: #8CA744;
+  width: 33%;
+  
+}
+
+nav.footerNav a {
+  color: #8CA744;
+}
+
+nav.footerNav a.selected {
+  font-weight: bold;
+  color: #334E29;
+}
+
+/* Image Styling */
 
 .imgContainer {
   display: flex;
@@ -75,23 +148,31 @@ img {
   max-width: 100%;
 }
 
-.mainNav {
+/* Form Styles */
+
+.forms {
+  text-align: center;
+  width: 33vw;
+  min-width: 200px;
+  margin: 2rem auto;
+  font-family: 'Alata', sans-serif;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-  align-items: center;
-  margin: 1rem 0;
-  border-bottom: 1px solid#D7DDE1;
+  flex-flow: column nowrap;
+  font-size: 1.5rem;
 }
 
-label {
+.forms input, .forms textarea {
+  margin: 1.5rem auto 1.5rem 1rem;
+  font-size: 1.5rem;
+}
+
+.forms textarea {
+  width: 100%;
+}
+
+.forms label {
   font-size: 1.5rem;
   color: #C12E29;
-}
-
-input, textarea {
-  font-size: 2rem;
-  margin: 2rem;
 }
 
 [placeholder] {
@@ -103,6 +184,7 @@ textarea {
   height: 15rem;
   width: 55%;
 }
+
 button {
   font-size: 3rem;
   padding: 1rem;
@@ -116,15 +198,20 @@ button:hover {
   transition: all .2s ease-in-out;
 }
 
+/* Cards Styling */
+
 .storyContainer {
   width: 48%;
   margin: 1rem auto;
-  padding: 2rem;
-  
+  padding: 2rem;  
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+}
+
+.storyContainer div a:hover {
+  text-decoration: none;
 }
 
 .title {
@@ -141,31 +228,16 @@ button:hover {
   align-content: space-between;
 }
 
-.logo {
-  width: 4rem;
+@media screen and (max-width: 550px) {
+  .cardContainer {
+    flex-flow: column nowrap;
+  }
+  .storyContainer {
+    width: 100%;
+  }
 }
 
-footer {
-  display:flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-  margin-top: 4rem;
-  background: #FFEEEE;
-  padding: 2rem;
-}
-nav.footerNav {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  align-items: flex-start;
-  border: none;
-  color: #8CA744;
-}
-
-footer img {
-  max-width: 10rem;
-}
+/* Carousel Styles */
 
 .carousel-caption {
   background: rgba(37,42,51, 0.7);
@@ -177,6 +249,27 @@ footer img {
   font-family: 'Bebas Neue', cursive;
 }
 
-.homeText {
-  margin-top: 3rem;
+
+/* Footer Styles */
+footer {
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4rem;
+  background: #FFEEEE;
+  padding: 2rem;
+  font-family: 'Alata', sans-serif;
+}
+
+footer div.imgContainer {
+  width: 10%;
+}
+
+footer img {
+  max-width: 10rem;
+}
+
+footer p {
+  text-align: center;
 }

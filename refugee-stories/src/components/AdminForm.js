@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {axiosWithAuth} from './axiosWithAuth.js';
+import { Button, ButtonGroup } from 'reactstrap';
 
 function AdminForm( props ) {
 
@@ -44,8 +45,10 @@ function AdminForm( props ) {
 
   return (
     <div className="approval-buttons">
-      <button onClick={approveStory}>Approve</button>
-      <button onClick={deleteStory}>Reject</button>
+      <ButtonGroup>
+        <Button size='lg' color='success' onClick={approveStory}>Approve</Button>
+        <Button size='lg' color='warning' onClick={deleteStory}>Reject</Button>
+      </ButtonGroup>
     </div>
   );
 }

@@ -3,6 +3,7 @@ import StoryCardForGrid from './StoryCardForGrid';
 import children from '../images/children.jpg';
 import { connect } from 'react-redux';
 import { fetchStories } from '../actions';
+import { Tween } from 'react-gsap';
 
 function Stories({ stories, fetchStories }) {
 
@@ -19,7 +20,9 @@ function Stories({ stories, fetchStories }) {
 
   return (
     <div>
-      <h1 style={{textAlign: 'center', marginTop: '4rem'}}>Refugee Stories</h1>
+      <Tween from={{ scale: 0}}>
+        <h1 className='mainH1'>Refugee Stories</h1>
+      </Tween>
 
       <div className='cardContainer'>
         {approvedStories.map(story => (

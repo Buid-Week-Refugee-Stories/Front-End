@@ -4,6 +4,7 @@ import AdminForm from './AdminForm';
 import welcomeWall from '../images/welcomeWall.jpg';
 import { connect } from 'react-redux';
 import { fetchStories } from '../actions';
+import { Tween } from 'react-gsap';
 
 function PendingStories({ fetchStories, stories }) {
 
@@ -17,7 +18,10 @@ function PendingStories({ fetchStories, stories }) {
 
   return (
     <div>
-      <h2>Pending Stories</h2>
+      <Tween from={{ scale: 0}}>
+        <h1 className='mainH1'>Pending Stories</h1>
+      </Tween>
+
       <div className="cardContainer" >
         {unApprovedStories.map(story => (
           <div key={story.id} className='storyContainer'>
