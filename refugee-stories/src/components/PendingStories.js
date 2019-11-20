@@ -1,9 +1,9 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import StoryCardForGrid from './StoryCardForGrid';
 import AdminForm from './AdminForm';
 import welcomeWall from '../images/welcomeWall.jpg';
-import { fetchStories} from '../actions';
 import { connect } from 'react-redux';
+import { fetchStories } from '../actions';
 
 function PendingStories({ fetchStories, stories }) {
 
@@ -12,13 +12,15 @@ function PendingStories({ fetchStories, stories }) {
     fetchStories();
   }, []);
 
+  // Show stories that have not been approved yet
+  const unApprovedStories = stories.filter(story => !story.approved_story);
+
   return (
     <div>
       <h2>Pending Stories</h2>
       <div className="cardContainer" >
-        {stories.map(story => (
+        {unApprovedStories.map(story => (
           <div key={story.id} className='storyContainer'>
-            {/* <AdminForm story={story} modifyStory={modifyStory} deleteStory={deleteStory} /> */}
             <AdminForm story={story} />
             <StoryCardForGrid story={story} />
           </div>
@@ -33,6 +35,8 @@ function PendingStories({ fetchStories, stories }) {
   );
 }
 
+
+// export default PendingStories;
 const mapStateToProps = (state) => {
   return {
     stories: state.stories,

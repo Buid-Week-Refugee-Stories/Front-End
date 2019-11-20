@@ -19,7 +19,7 @@ function LoginForm(props) {
     axios.post('https://bw-refugees.herokuapp.com/auth/login', userInput)
       .then(res => {
         console.log(res.data)
-        localStorage.setItem('token', res.token);
+        localStorage.setItem('token', res.data.token);
         props.history.push('/pending');
       })
       .catch(err => {

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {axiosWithAuth} from '../components/axiosWithAuth';
+import { axiosWithAuth } from '../components/axiosWithAuth';
 
 // Action types.
 export const FETCH_DATA_START = 'FETCH_DATA_START';
@@ -13,6 +13,10 @@ export const POST_DATA_FAIL = 'POST_DATA_FAIL';
 export const DELETE_DATA_START = 'DELETE_DATA_START';
 export const DELETE_DATA_SUCCESS = 'DELETE_DATA_SUCCESS';
 export const DELETE_DATA_FAIL = 'DELETE_DATA_FAIL';
+
+export const APPROVE_STORY_START = 'APPROVE_STORY_START';
+export const APPROVE_STORY_SUCCESS = 'APPROVE_STORY_SUCCESS';
+export const APPROVE_STORY_FAIL = 'APPROVE_STORY_FAIL';
 
 // Create action to fetch stories.
 export const fetchStories = () => dispatch => {
@@ -36,43 +40,4 @@ export const fetchStories = () => dispatch => {
 
             console.log(err);
         });
-}
-
-export const addStory = (story) => dispatch => {
-    dispatch({ type: POST_DATA_START });
-
-    axiosWithAuth.post('https://bw-refugees.herokuapp.com/stories', story)
-        .then(res => {
-
-            dispatch({
-                type: POST_DATA_SUCCESS,
-                payload: story
-            });
-
-            console.log(res.data);
-        })
-        .catch(err => {
-
-            dispatch({
-                type: POST_DATA_FAIL,
-                payload: err
-            });
-
-            console.log(err);
-        });
-}
-
-export const deleteStory = (id) => dispatch => {
-    dispatch({ type: DELETE_DATA_START });
-
-    axiosWithAuth.delete(`https://bw-refugees.herokuapp.com/stories/:${id}`)
-        .then(res =>
-            console.log(res)
-            // dispatch({type: DELETE_DATA_SUCCESS, payload: res.data});
-        )
-        .catch(err => {
-            dispatch({type: DELETE_DATA_FAIL});
-            console.log(err);
-        })
-
 }

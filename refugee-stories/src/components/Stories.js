@@ -6,20 +6,23 @@ import { fetchStories } from '../actions';
 
 function Stories({ stories, fetchStories }) {
 
-  // const approvedStories = stories.filter(story => story.approved_story);
-
   // Fetch stories data on load from redux store.
   useEffect(() => {
     fetchStories();
   }, []);
+  
+  const approvedStories = stories.filter(story => story.approved_story);
 
-  console.log("Stories from reducer:", stories);
+  if (!stories.length || !stories) {
+    return <h2>Loading item data...</h2>;
+  }
+
   return (
     <div>
       <h1 style={{textAlign: 'center', marginTop: '4rem'}}>Refugee Stories</h1>
 
       <div className='cardContainer'>
-        {stories.map(story => (
+        {approvedStories.map(story => (
           <div className="storyContainer" key={story.id} >
             <StoryCardForGrid story={story} />
           </div>
