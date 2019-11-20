@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import welcome from '../images/welcome.jpg';
 import axios from 'axios';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Tween } from 'react-gsap';
 
 function LoginForm(props) {
 
@@ -37,8 +38,12 @@ function LoginForm(props) {
   return (
     <div>
       <div> 
-        <h1 className='mainH1'>Log in to Refugee Stories</h1> 
+        <Tween from={{ scale: 0}}>
+          <h1 className='mainH1'>Log in to Refugee Stories</h1>
+        </Tween>
+
         <Form onSubmit={submitForm} className='forms'>
+          
           <FormGroup>
             <Label htmlFor="username">Username: </Label>
             <Input type='text' 
@@ -48,7 +53,8 @@ function LoginForm(props) {
               placeholder='Enter username'
               onChange={handleChange}
               required
-             /><br />
+             />
+             <br />
           </FormGroup>
 
           <FormGroup>

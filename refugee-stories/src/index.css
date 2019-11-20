@@ -69,6 +69,11 @@ a {
   width: 4rem;
 }
 
+.source {
+  font-size: 1rem;
+  color: black;
+}
+
 .mainNav {
   display: flex;
   flex-flow: row wrap;

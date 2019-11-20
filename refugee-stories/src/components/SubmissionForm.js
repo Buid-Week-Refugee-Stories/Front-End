@@ -1,18 +1,38 @@
 import React from 'react';
 import refugees from '../images/refugees.jpg';
+import pencil from '../images/pencil.svg';
+import family from '../images/family.png';
+import speechBubble from '../images/speechBubble.svg';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { addStory } from '../actions';
 import { connect } from 'react-redux';
 import { Label, FormGroup, Button } from 'reactstrap';
+import { Tween } from 'react-gsap';
+ 
 
 
 function SubmissionForm( {values, errors, touched, props}) {
   
   return (
     <div>
-      
-      <h1 className='mainH1'>Submit Your Story</h1>
+      <Tween from={{ scale: 0}}>
+        <h1 className='mainH1'>Submit Your Story</h1>
+      </Tween>
+
+
+      <Tween duration={2} to={{rotation:720, x:'40vw'}}>
+        <img src={pencil} alt='pencil' style={{ display: 'inline-block', margin: 'auto', width: '4rem'}} />
+      </Tween>
+
+      <Tween duration={1.5} to={{ x:'45vw'}}>
+        <img src={family} alt='family' style={{ display: 'inline-block', margin: 'auto', width: '5rem'}} />
+      </Tween>
+
+      <Tween duration={3} from={{rotation:720, x: '55vw', scale: 1.5}}>
+        <img src={speechBubble} alt='speech bubble' style={{ display: 'inline-block', margin: 'auto', width: '4rem', left: '50vw', position: 'relative'}} />
+      </Tween>
+
       <Form className='forms'>
 
         <FormGroup>
@@ -62,6 +82,7 @@ function SubmissionForm( {values, errors, touched, props}) {
       <div className="imgContainer">
         <img src={refugees} alt='refugees standing at a seashore' />
       </div>
+
     </div>
   );
 }
