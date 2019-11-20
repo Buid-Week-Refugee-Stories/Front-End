@@ -1,16 +1,29 @@
 import axios from 'axios';
+import { axiosWithAuth } from '../components/axiosWithAuth';
 
 // Action types.
 export const FETCH_DATA_START = 'FETCH_DATA_START';
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 export const FETCH_DATA_FAIL = 'FETCH_DATA_FAIL';
 
+export const POST_DATA_START = 'POST_DATA_START';
+export const POST_DATA_SUCCESS = 'POST_DATA_SUCCESS';
+export const POST_DATA_FAIL = 'POST_DATA_FAIL';
+
+export const DELETE_DATA_START = 'DELETE_DATA_START';
+export const DELETE_DATA_SUCCESS = 'DELETE_DATA_SUCCESS';
+export const DELETE_DATA_FAIL = 'DELETE_DATA_FAIL';
+
+export const APPROVE_STORY_START = 'APPROVE_STORY_START';
+export const APPROVE_STORY_SUCCESS = 'APPROVE_STORY_SUCCESS';
+export const APPROVE_STORY_FAIL = 'APPROVE_STORY_FAIL';
+
 // Create action to fetch stories.
 export const fetchStories = () => dispatch => {
 
     dispatch({ type: FETCH_DATA_START });
 
-    axios.get(`https://bw-refugees.herokuapp.com/stories`)
+    axios.get('https://bw-refugees.herokuapp.com/stories')
         .then(res => {
             dispatch({
                 type: FETCH_DATA_SUCCESS,

@@ -2,6 +2,8 @@ import React from 'react';
 import refugees from '../images/refugees.jpg';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import { addStory } from '../actions';
+import { connect } from 'react-redux';
 
 
 function SubmissionForm( {values, errors, touched, props}) {
@@ -79,13 +81,31 @@ const FormikSubmissionForm = withFormik({
   
   handleSubmit(values, tools) {
     console.log(values);
-    tools.props.addNewStory(values);
+    const newStory = {
+      id: Date.now(),
+      author: values.author,
+      location: values.location,
+      created_at: Date.now(),
+      story_title: values.story_title,
+      story_description: values.story_description,
+      approved_story: false
+    }
+    console.log("Values for new story", newStory);
+
+    // tools.props.addNewStory(values);
     tools.resetForm();
     //TODO: Add POST axios call here to backend once that is ready.
   }
 })(SubmissionForm);
 
+// const mapStateToProps = (state) => {
+//   return {
+//   }
+// }
+
+
 export default FormikSubmissionForm;
+// export connect({mapStateToProps}, { addStory })(FormikSubmissionForm);
 
 // Here is the original code, before Formik:
 /*

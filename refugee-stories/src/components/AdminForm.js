@@ -1,45 +1,54 @@
-import React, { useState } from 'react';
-
+import React, { useState, useEffect } from 'react';
+import {axiosWithAuth} from './axiosWithAuth.js';
 
 function AdminForm( props ) {
-  const [adminInput, setAdminInput] = useState( {
-    approved_story: false,
-    delete_story: false,
-  });
 
-  const handleChange = e => {
-    const target = e.target;
-    const value = target.type === 'checkbox'? target.checked: target.value;
-    const name = target.name;
-    setAdminInput({...adminInput, [name]: value});
-    if (name === 'approved_story' && value === true) {
-        props.modifyStory(props.story);
-    }
-    if (name === 'delete_story' && value === true) {
-        props.deleteStory(props.story);
-    }
+  const { story } = props;
+
+  const [storyToApprove, setStoryToApprove] = useState(story);
+
+  console.log("Story to approve",storyToApprove);
+  console.log("Story from redux",story);
+
+  const approveStory = (e) => {
+    setStoryToApprove({...storyToApprove, approved_story: true});
+  }
+
+  // console.log("Story to approve update",storyToApprove);
+
+  useEffect(() => {
+    axiosWithAuth().put(`https://bw-refugees.herokuapp.com/stories/${story.id}`, storyToApprove)
+      .then(res => {
+        // props.history.push('/stories'); // Redirect to stories list
+        console.log(res)
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }, [storyToApprove]);
+
+  const deleteStory = (e) => {
+
+    // console.log(story.id);
+
+    axiosWithAuth().delete(`https://bw-refugees.herokuapp.com/stories/${story.id}`)
+      .then(res => {
+        console.log(res)
+        props.history.push('/stories'); // Redirect to stories list
+      })
+      .catch(err => {
+        console.log(err);
+      })
+
   }
 
   return (
-    <div>
-        <form>
-            <label htmlFor='approved_story'><span role='img' aria-label='check'>✅</span> Approve? </label>
-            <input type='checkbox'
-            name='approved_story'
-            id='approved_story'
-            onChange={handleChange}
-            checked={adminInput.approved_story}
-            />
-
-            <label htmlFor='delete_story'><span role='img' aria-label='cross'>❎</span> Delete? </label>
-            <input type='checkbox'
-            name='delete_story'
-            id='delete_story'
-            onChange={handleChange}
-            checked={adminInput.delete_story}/><br />
-      </form>
+    <div className="approval-buttons">
+      <button onClick={approveStory}>Approve</button>
+      <button onClick={deleteStory}>Reject</button>
     </div>
   );
 }
 
+// export default connect(mapStateToProps, { approveStory })(AdminForm);
 export default AdminForm;
