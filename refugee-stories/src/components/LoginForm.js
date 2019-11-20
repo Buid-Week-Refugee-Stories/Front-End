@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import welcome from '../images/welcome.jpg';
 import axios from 'axios';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+
+const formStyles = {
+  textAlign: 'center',
+  width: '33vw',
+  margin: '2rem auto',
+  fontFamily: ['Alata', 'sans-serif'],
+  minWidth: '200px'
+}
 
 function LoginForm(props) {
 
@@ -36,28 +45,34 @@ function LoginForm(props) {
   return (
     <div>
       <div> 
-        <h2> Log In To Refugee Stories</h2>
-        <form onSubmit={submitForm}>
-            <label htmlFor="username">Username: </label>
-            <input type='text' 
+        <h1 style={{textAlign: 'center', marginTop: '4rem'}}> Log In To Refugee Stories</h1>
+        <Form onSubmit={submitForm} style={formStyles}>
+          <FormGroup>
+            <Label htmlFor="username">Username: </Label>
+            <Input type='text' 
               name='username' 
               value={userInput.username} 
               id='username' 
               placeholder='Enter username'
               onChange={handleChange}
-              required/><br />
+              required
+              style={{fontSize: '1.5rem'}}/><br />
+          </FormGroup>
 
-            <label htmlFor='password'>Password: </label>
-            <input type='password' 
+          <FormGroup>
+            <Label htmlFor='password'>Password: </Label>
+            <Input type='password' 
               name='password' 
               value={userInput.password} 
               id='password'
               placeholder='Enter password'
               onChange={handleChange}
+              style={{fontSize: '1.5rem'}}
               required /><br />
+          </FormGroup>
 
-            <button type='submit'>Log In</button>
-        </form>
+            <Button type='submit' size='lg' color='warning' style={{padding: '1.5rem'}}>Log In</Button>
+        </Form>
         </div>
         {/* <div>
           <h2>Welcome back, {userInput.username}.</h2>
