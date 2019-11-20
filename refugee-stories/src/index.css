@@ -205,6 +205,10 @@ button:hover {
   align-items: center;
 }
 
+.storyContainer div a:hover {
+  text-decoration: none;
+}
+
 .title {
   color: #3D5B91;
 }
@@ -217,6 +221,15 @@ button:hover {
   justify-content: space-between;
   align-items: flex-start;
   align-content: space-between;
+}
+
+@media screen and (max-width: 550px) {
+  .cardContainer {
+    flex-flow: column nowrap;
+  }
+  .storyContainer {
+    width: 100%;
+  }
 }
 
 /* Carousel Styles */

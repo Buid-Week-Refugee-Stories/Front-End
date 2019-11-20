@@ -17,7 +17,7 @@ function PendingStories({ fetchStories, stories }) {
 
   return (
     <div>
-      <h2>Pending Stories</h2>
+      <h1 className='mainH1'>Pending Stories</h1>
       <div className="cardContainer" >
         {unApprovedStories.map(story => (
           <div key={story.id} className='storyContainer'>

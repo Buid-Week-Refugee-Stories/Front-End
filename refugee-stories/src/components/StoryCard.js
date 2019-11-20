@@ -21,7 +21,7 @@ function StoryCard(props) {
 
   return (
     <>
-      <h1>Single Story</h1>
+      <h1 className='mainH1'>Refugee Story</h1>
       {!isFetching && <StoryBox story={story} />}
     </>
   );
