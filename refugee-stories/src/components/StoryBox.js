@@ -35,12 +35,16 @@ function StoryBox( { story }) {
   
   return (
     <Card>
+      {!(story.refugee_location_img)? null : 
       <CardImg top width='100%' src={story.refugee_location_img} alt='location' />
+      }
       <CardBody>
       <CardTitle style={titleStyles}>{story.story_title}</CardTitle>
 
+      {!(story.avatar_image)? null: 
       <CardImg src={story.avatar_image} style={imgStyles} alt='refugee' />
-
+      }
+      
       {story.author? 
       <CardSubtitle style={subtitleStyles}>By {story.author}</CardSubtitle>: null }
 
