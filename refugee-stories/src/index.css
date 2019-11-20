@@ -151,16 +151,23 @@ img {
   min-width: 200px;
   margin: 2rem auto;
   font-family: 'Alata', sans-serif;
+  display: flex;
+  flex-flow: column nowrap;
+  font-size: 1.5rem;
 }
 
-label {
+.forms input, .forms textarea {
+  margin: 1.5rem auto 1.5rem 1rem;
+  font-size: 1.5rem;
+}
+
+.forms textarea {
+  width: 100%;
+}
+
+.forms label {
   font-size: 1.5rem;
   color: #C12E29;
-}
-
-input, textarea {
-  font-size: 2rem;
-  margin: 2rem;
 }
 
 [placeholder] {

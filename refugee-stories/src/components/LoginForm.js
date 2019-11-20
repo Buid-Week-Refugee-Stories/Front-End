@@ -48,7 +48,7 @@ function LoginForm(props) {
               placeholder='Enter username'
               onChange={handleChange}
               required
-              style={{fontSize: '1.5rem'}}/><br />
+             /><br />
           </FormGroup>
 
           <FormGroup>
@@ -59,11 +59,10 @@ function LoginForm(props) {
               id='password'
               placeholder='Enter password'
               onChange={handleChange}
-              style={{fontSize: '1.5rem'}}
               required /><br />
           </FormGroup>
 
-            <Button type='submit' size='lg' color='warning' style={{padding: '1rem 1.5rem'}}>Log In</Button>
+            <Button type='submit' size='lg' color='warning' style={{width: '50%', margin: 'auto'}}>Log In</Button>
         </Form>
         </div>
         {/* <div>

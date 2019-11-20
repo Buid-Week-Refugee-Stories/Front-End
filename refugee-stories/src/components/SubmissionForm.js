@@ -4,48 +4,58 @@ import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import { addStory } from '../actions';
 import { connect } from 'react-redux';
+import { Label, FormGroup, Button } from 'reactstrap';
 
 
 function SubmissionForm( {values, errors, touched, props}) {
   
   return (
     <div>
-      <h2>Submit Your Story</h2>
-      <Form>
-        <label htmlFor='author'>Your name: </label>
-        <Field type='text'
-          name='author'
-          placeholder='your name'
-        />
-        {touched.author && errors.author && (<p>{errors.author}</p>)}
-        <br />
-        
+      
+      <h1 className='mainH1'>Submit Your Story</h1>
+      <Form className='forms'>
 
-        <label htmlFor='location'>Your location: </label>
-        <Field type='text'
-          name='location'
-          placeholder='your location'
-        />
-        {touched.location && errors.location && (<p>{errors.location}</p>)}
-        <br />
+        <FormGroup>
+          <Label htmlFor='author'>Your name: </Label>
+          <Field type='text'
+            name='author'
+            placeholder='your name'
+          />
+          {touched.author && errors.author && (<p>{errors.author}</p>)}
+          <br />
+        </FormGroup>
 
-        <label htmlFor='story_title'>Title: </label>
-        <Field type='text'
-          name='story_title'
-          placeholder='title'
-         />
-        {touched.story_title && errors.story_title && (<p>{errors.story_title}</p>)}
-        <br />
+        <FormGroup>
+          <Label htmlFor='location'>Your location: </Label>
+          <Field type='text'
+            name='location'
+            placeholder='your location'
+          />
+          {touched.location && errors.location && (<p>{errors.location}</p>)}
+          <br />
+        </FormGroup>
 
-        <label htmlFor='story_description'>Story: </label><br />
-        <Field type='textarea'
-          name='story_description'
-          placeholder='your story here'
-        />
-        {touched.story_description && errors.story_description && (<p>{errors.story_description}</p>)}
-        <br />
+        <FormGroup>
+          <Label htmlFor='story_title'>Title: </Label>
+          <Field type='text'
+            name='story_title'
+            placeholder='title'
+          />
+          {touched.story_title && errors.story_title && (<p>{errors.story_title}</p>)}
+          <br />
+        </FormGroup>
 
-        <button type='submit'>Submit Story</button>
+        <FormGroup>
+          <Label htmlFor='story_description'>Story: </Label><br />
+          <Field component='textarea'
+            name='story_description'
+            placeholder='your story here'
+          />
+          {touched.story_description && errors.story_description && (<p>{errors.story_description}</p>)}
+          <br />
+        </FormGroup>
+
+        <Button type='submit' size='lg' color='warning' style={{width: '50%', margin: 'auto'}}>Submit Story</Button>
 
       </Form>
 
