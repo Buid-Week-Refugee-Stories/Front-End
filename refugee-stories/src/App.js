@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Route} from 'react-router-dom'
 import './App.css';
 import PrivateRoute from './components/PrivateRoute';
@@ -14,7 +14,9 @@ import PendingStories from './components/PendingStories';
 import Footer from './components/Footer';
 
 function App() {
-
+  const [isloggedIn, setIsLoggedIn] = useState(window.localStorage.getItem('token'));
+  
+  console.log('Logged in', isloggedIn);
   return (
     <div>
       <Nav />
