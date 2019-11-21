@@ -20,7 +20,7 @@ function PendingStories(props) {
   }
 
   // Show stories that have not been approved yet
-  const unApprovedStories = props.stories.filter(story => !story.approved_story);
+  //const unApprovedStories = props.stories.filter(story => !story.approved_story);
   
   return (
     <div>
@@ -32,12 +32,15 @@ function PendingStories(props) {
       {props.isDeleting && (<h2 className="loading">Deleting data...</h2>)}
 
       {!props.isDeleting && !props.isFetching && <div className="cardContainer" >
-        {unApprovedStories.map(story => (
+        {props.stories.map(story => {
+          if (!story.approved_story) {
+          return (
           <div key={story.id} className='storyContainer'>
             <AdminForm story={story} history={props.history} deleteStory={props.deleteStory} />
             <StoryCardForGrid story={story} />
           </div>
-        ))}
+        )}
+        })}
       </div>}
 
       <div className='imgContainer'>
