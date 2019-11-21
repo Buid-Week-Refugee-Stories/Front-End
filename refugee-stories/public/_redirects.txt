@@ -1,0 +1,6 @@
+/   /
+/login  /login
+/stories    /stories
+/submission     /submission
+/pending    /pending
+/connect    /connect
