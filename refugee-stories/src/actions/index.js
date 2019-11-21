@@ -65,3 +65,18 @@ export const addStory = (story) => dispatch => {
             console.log(err);
         });
 }
+
+export const deleteStory = (story) => dispatch => {
+    dispatch({type:DELETE_DATA_START});
+
+    axiosWithAuth().delete(`https://bw-refugees.herokuapp.com/stories/${story.id}`)
+        .then(res => {
+            console.log('deleted item', res.data)
+            dispatch({type: DELETE_DATA_SUCCESS, payload: res.data});
+        })
+        .catch(err => {
+            console.log(err);
+            dispatch({type: DELETE_DATA_FAIL, payload: err});
+        })
+
+}

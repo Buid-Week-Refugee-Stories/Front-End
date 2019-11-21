@@ -13,8 +13,8 @@ import { Tween } from 'react-gsap';
 function SubmissionForm(props) {
 
   // addStory being used in formik.
-  const { values, errors, touched, addStory } = props
-  
+  const { values, errors, touched, addStory, isAdded } = props
+
   return (
     <div>
       <Tween from={{ scale: 0}}>
@@ -79,6 +79,7 @@ function SubmissionForm(props) {
         <Button type='submit' size='lg' color='warning' style={{width: '50%', margin: 'auto'}}>Submit Story</Button>
 
       </Form>
+      {/* {isAdded && alert("Thank you for your submission! Someone will be reviewing it for approval.")} */}
 
       <div className="imgContainer">
         <img src={refugees} alt='refugees standing at a seashore' />
@@ -126,12 +127,15 @@ const FormikSubmissionForm = withFormik({
 
     // Add story to database.
     tools.props.addStory(newStory);
+    // tools.props.history.push('/');
     tools.resetForm();
   }
 })(SubmissionForm);
 
 const mapStateToProps = (state) => {
-  return {}
+  return {
+    isAdded: state.isAdded
+  }
 }
 
 // export default FormikSubmissionForm;
