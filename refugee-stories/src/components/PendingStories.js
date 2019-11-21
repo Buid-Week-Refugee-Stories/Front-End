@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import StoryCardForGrid from './StoryCardForGrid';
 import AdminForm from './AdminForm';
 import welcomeWall from '../images/welcomeWall.jpg';
@@ -8,10 +8,11 @@ import { Tween } from 'react-gsap';
 
 
 function PendingStories(props) {
-  
+ 
   // Fetch stories data on load from redux store.
   useEffect(() => {
     props.fetchStories();
+    
   }, []);
 
   if (!props.stories.length || !props.stories) {
