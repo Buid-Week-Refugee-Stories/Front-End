@@ -4,16 +4,14 @@ import { Button, ButtonGroup } from 'reactstrap';
 
 function AdminForm( props ) {
 
-  const { story, history, deleteStory } = props;
-  console.log("props from admin",props)
+  const { story, deleteStory, history } = props;
 
   const [storyToApprove, setStoryToApprove] = useState(story);
 
   const approveStory = (e) => {
-    setStoryToApprove({...storyToApprove, approved_story: true});
+    setStoryToApprove({ ...storyToApprove, approved_story: !storyToApprove.approved_story });
+    console.log("Approved story change:", storyToApprove);
   }
-
-  // console.log("Story to approve update",storyToApprove);
 
   useEffect(() => {
     axiosWithAuth().put(`https://bw-refugees.herokuapp.com/stories/${story.id}`, storyToApprove)
