@@ -9,11 +9,13 @@ import { Tween } from 'react-gsap';
 
 function PendingStories(props) {
  
+  const [storyToApprove, setStoryToApprove] = useState();
+
   // Fetch stories data on load from redux store.
   useEffect(() => {
     props.fetchStories();
     
-  }, []);
+  }, [storyToApprove]);
 
   if (!props.stories.length || !props.stories) {
     return <h2>No stories to check</h2>;
@@ -33,10 +35,14 @@ function PendingStories(props) {
 
       {!props.isDeleting && !props.isFetching && <div className="cardContainer" >
         {props.stories.map(story => {
+          console.log("here comes a story: ");
+          console.log(story);
           if (!story.approved_story) {
           return (
           <div key={story.id} className='storyContainer'>
-            <AdminForm story={story} history={props.history} deleteStory={props.deleteStory} />
+            <AdminForm story={story} storyToApprove={storyToApprove}
+            setStoryToApprove={setStoryToApprove} history={props.history} deleteStory={props.deleteStory} />
+      
             <StoryCardForGrid story={story} />
           </div>
         )}

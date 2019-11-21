@@ -4,10 +4,10 @@ import { Button, ButtonGroup } from 'reactstrap';
 
 function AdminForm( props ) {
 
-  const { story, history, deleteStory } = props;
+  const { story, history, deleteStory, storyToApprove, setStoryToApprove } = props;
   console.log("props from admin",props)
 
-  const [storyToApprove, setStoryToApprove] = useState(story);
+  // const [storyToApprove, setStoryToApprove] = useState(story);
 
   const approveStory = (e) => {
     setStoryToApprove({...storyToApprove, approved_story: true});
