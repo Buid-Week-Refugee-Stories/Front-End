@@ -15,7 +15,7 @@ function Stories({ stories, fetchStories }) {
   const approvedStories = stories.filter(story => story.approved_story);
 
   if (!stories.length || !stories) {
-    return <h2>Loading item data...</h2>;
+    return <h2>Loading stories...</h2>;
   }
 
   return (
