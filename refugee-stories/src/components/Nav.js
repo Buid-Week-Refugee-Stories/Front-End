@@ -17,6 +17,7 @@ const Nav = () => {
         <NavLink to='/stories' activeClassName="selected">Stories</NavLink>
         <NavLink to='/submission' activeClassName="selected">Submit a Story</NavLink>
         <NavLink to='/pending' activeClassName="selected">Pending Stories</NavLink>
+        <NavLink to='/connect' activeClassName="selected">Connect</NavLink>
     </nav>
     )
 }

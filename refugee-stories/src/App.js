@@ -28,6 +28,7 @@ function App() {
       <Route path='/submission' component={SubmissionForm} />
       <Route exact path='/stories/:storyID' component={StoryCard} />
       <PrivateRoute path='/pending' component={PendingStories} />
+      <Route path='/connect' component={Connect} />
       <Footer />
     </div>
   );
