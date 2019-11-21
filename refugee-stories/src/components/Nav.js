@@ -12,11 +12,14 @@ const Nav = () => {
                 <img src={RefugeeStoriesLogo} className='logo' alt='home' />
             </div>
         </NavLink>
-        <NavLink to='/about' activeClassName="selected">About Us</NavLink>
+        <a href='https://refugee-stories1119.netlify.com/index.html'>Our Mission</a>
+        <a href='https://refugee-stories1119.netlify.com/team.html'>About Us</a>
+        
         <NavLink to='/login' activeClassName="selected">Login</NavLink>
         <NavLink to='/stories' activeClassName="selected">Stories</NavLink>
         <NavLink to='/submission' activeClassName="selected">Submit a Story</NavLink>
         <NavLink to='/pending' activeClassName="selected">Pending Stories</NavLink>
+        <NavLink to='/connect' activeClassName="selected">Connect</NavLink>
     </nav>
     )
 }

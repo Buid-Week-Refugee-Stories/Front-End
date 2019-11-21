@@ -12,6 +12,7 @@ import Nav from './components/Nav';
 import StoryCard from './components/StoryCard';
 import PendingStories from './components/PendingStories';
 import Footer from './components/Footer';
+import Connect from './components/Connect';
 
 function App() {
   const [isloggedIn, setIsLoggedIn] = useState(window.localStorage.getItem('token'));
@@ -27,6 +28,7 @@ function App() {
       <Route path='/submission' component={SubmissionForm} />
       <Route exact path='/stories/:storyID' component={StoryCard} />
       <PrivateRoute path='/pending' component={PendingStories} />
+      <Route path='/connect' component={Connect} />
       <Footer />
     </div>
   );
