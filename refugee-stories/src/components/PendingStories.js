@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import StoryCardForGrid from './StoryCardForGrid';
 import AdminForm from './AdminForm';
 import welcomeWall from '../images/welcomeWall.jpg';
@@ -8,23 +8,20 @@ import { Tween } from 'react-gsap';
 
 
 function PendingStories(props) {
- 
+
   // Fetch stories data on load from redux store.
   useEffect(() => {
     props.fetchStories();
-    
+
   }, []);
 
   if (!props.stories.length || !props.stories) {
     return <h2>No stories to check</h2>;
   }
 
-  // Show stories that have not been approved yet
-  //const unApprovedStories = props.stories.filter(story => !story.approved_story);
-  
   return (
     <div>
-      <Tween from={{ scale: 0}}>
+      <Tween from={{ scale: 0 }}>
         <h1 className='mainH1'>Pending Stories</h1>
       </Tween>
 
@@ -34,12 +31,13 @@ function PendingStories(props) {
       {!props.isDeleting && !props.isFetching && <div className="cardContainer" >
         {props.stories.map(story => {
           if (!story.approved_story) {
-          return (
-          <div key={story.id} className='storyContainer'>
-            <AdminForm story={story} history={props.history} deleteStory={props.deleteStory} />
-            <StoryCardForGrid story={story} />
-          </div>
-        )}
+            return (
+              <div key={story.id} className='storyContainer'>
+                <AdminForm fetchStories={props.fetchStories} story={story} history={props.history} deleteStory={props.deleteStory} />
+                <StoryCardForGrid story={story} />
+              </div>
+            )
+          }
         })}
       </div>}
 
