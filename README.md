@@ -25,6 +25,21 @@ Submit Your Story Page : Clicking add story brings up a page with a self contain
 
 Create a connect page that shows a google map to show the nearest refugee organizations near you to volunteer with.
 
+------------------------------
+
+**How to Initialize Project Locally**
+
+    1. cd into the refugee-stories directory.
+
+    2. Run yarn or npm i to install dependencies.
+
+    3. Run yarn start or npm start to start the server.
+
+    4. Go to http://localhost:3000/ to see the project.
+
+    5. Use your code editor to see the code and make changes.
+
+-------------------------
 
 ## Possible Stories to Add to the App:
 
